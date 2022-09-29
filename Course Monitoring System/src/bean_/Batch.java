@@ -5,18 +5,18 @@ public class Batch {
     private int batchId;
     private int courseId;
     private int facultyId;
-    private int numberOfCourses;
+    private int numberOfStudent;
     private String batchStartDate;
     private String duration;
 
     public Batch() {
     }
 
-    public Batch(int batchId, int courseId, int facultyId, int numberOfCourses, String batchStartDate, String duration) {
+    public Batch(int batchId, int courseId, int facultyId, int numberOfStudent, String batchStartDate, String duration) {
         this.batchId = batchId;
         this.courseId = courseId;
         this.facultyId = facultyId;
-        this.numberOfCourses = numberOfCourses;
+        this.numberOfStudent = numberOfStudent;
         this.batchStartDate = batchStartDate;
         this.duration = duration;
     }
@@ -45,12 +45,12 @@ public class Batch {
         this.facultyId = facultyId;
     }
 
-    public int getNumberOfCourses() {
-        return numberOfCourses;
+    public int getNumberOfStudent() {
+        return numberOfStudent;
     }
 
-    public void setNumberOfCourses(int numberOfCourses) {
-        this.numberOfCourses = numberOfCourses;
+    public void setNumberOfStudent(int numberOfCourses) {
+        this.numberOfStudent = numberOfCourses;
     }
 
     public String getBatchStartDate() {
@@ -75,7 +75,7 @@ public class Batch {
                 "batchId=" + batchId +
                 ", courseId=" + courseId +
                 ", facultyId=" + facultyId +
-                ", numberOfCourses=" + numberOfCourses +
+                ", numberOfCourses=" + numberOfStudent +
                 ", batchStartDate='" + batchStartDate + '\'' +
                 ", duration='" + duration + '\'' +
                 '}';
