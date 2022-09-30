@@ -3,10 +3,7 @@ package dao_;
 import bean_.Course;
 import utility.Dbc;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,5 +52,24 @@ public class Course_Dao_Impl implements Course_Dao{
         }
 
         return clist;
+    }
+
+    //--------------------------------------------updateCourse---------------------------------------------
+
+    @Override
+    public void updateCourse(int ci, String f, String s) {
+
+        Connection conn=Dbc.getConnection();
+        try {
+            Statement sm=conn.createStatement();
+           int ans= sm.executeUpdate("Update course set "+f+"="+s+" where courseId="+ci+"");
+           if(ans==1) {
+               System.out.println("Updated Successfully");
+           }else{
+               System.out.println("Not Updated");
+           }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

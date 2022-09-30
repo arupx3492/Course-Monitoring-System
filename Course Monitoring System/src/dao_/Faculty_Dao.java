@@ -8,8 +8,10 @@ import java.util.List;
 public interface Faculty_Dao {
 
     public void registerFaculty(Faculty faculty);
-    public void UpdateFaculty(String s);
+    public void updateFaculty(int fi,String f,String s);
+
 
     public List<Faculty> viewFaculty() throws Faculty_Exception;
+    public void updateFacultyPassword(int fi,String pass);
 
 }

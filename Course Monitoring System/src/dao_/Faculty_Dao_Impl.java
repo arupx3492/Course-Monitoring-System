@@ -4,10 +4,7 @@ import bean_.Faculty;
 import exception_.Faculty_Exception;
 import utility.Dbc;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,10 +42,23 @@ public class Faculty_Dao_Impl implements Faculty_Dao {
 //--------------------------------------------Update Faculty-------------------------------------------
 
     @Override
-    public void UpdateFaculty(String s) {
+    public void updateFaculty(int fi, String f, String s) {
 
-        Connection conn=utility.Dbc.getConnection();
+        Connection conn = utility.Dbc.getConnection();
+        String Q = "Update Faculty set " + f + "=" + s + "where FacultyIid =" + fi + ";";
+        try {
+            Statement sm = conn.createStatement();
+            int ans = sm.executeUpdate("Update Faculty set " + f + " = '" + s + "' where facultyId= " + fi + " ");
+            if (ans > 0) {
+                System.out.println("Update Successful");
+            } else {
+                System.out.println("Update Not Done");
+            }
 
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 
@@ -56,31 +66,52 @@ public class Faculty_Dao_Impl implements Faculty_Dao {
     //-------------------------------------------------View Faculty------------------------------------------
     @Override
     public List<Faculty> viewFaculty() {
-        ArrayList list=new ArrayList();
+        ArrayList list = new ArrayList();
 
-        Connection conn=Dbc.getConnection();
+        Connection conn = Dbc.getConnection();
         try {
-            PreparedStatement ps=conn.prepareStatement("Select * from Faculty;");
-            ResultSet rs=ps.executeQuery();
+            PreparedStatement ps = conn.prepareStatement("Select * from Faculty;");
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                int f_id=rs.getInt(1);
-                String f_name=rs.getString(2);
-                String f_address=rs.getString(3);
-                String f_mobile=rs.getString(4);
-                String f_email=rs.getString(5);
-                String f_username=rs.getString(6);
-                String f_password=rs.getString(7);
-                Faculty f1=new Faculty(f_id,f_name,f_address,f_mobile,f_email,f_username,f_password);
+                int f_id = rs.getInt(1);
+                String f_name = rs.getString(2);
+                String f_address = rs.getString(3);
+                String f_mobile = rs.getString(4);
+                String f_email = rs.getString(5);
+                String f_username = rs.getString(6);
+                String f_password = rs.getString(7);
+                Faculty f1 = new Faculty(f_id, f_name, f_address, f_mobile, f_email, f_username, f_password);
                 list.add(f1);
             }
-            if(rs==null){
-               Faculty_Exception fe=  new Faculty_Exception("No record found");
-               throw fe;
+            if (rs == null) {
+                Faculty_Exception fe = new Faculty_Exception("No record found");
+                throw fe;
             }
         } catch (SQLException | Faculty_Exception e) {
             throw new RuntimeException(e);
         }
 
         return list;
+    }
+
+
+    //-------------------------------------------updateFacultyPassword---------------------------------------------------------
+
+    @Override
+    public void updateFacultyPassword(int fi,String pass) {
+
+        Connection conn=Dbc.getConnection();
+        try {
+            Statement sm=conn.createStatement();
+         int ans=sm.executeUpdate(" update faculty set password = '"+pass+"' where FacultyId ="+fi+";" );
+         if(ans==1) {
+             System.out.println("Password Updated Successfully");
+         }else {
+             System.out.println("Faculty not Exist");
+         }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
