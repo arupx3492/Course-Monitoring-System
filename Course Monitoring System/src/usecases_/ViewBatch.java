@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ViewBatch {
 
-    public static void main(String[] args) {
+    public static void viewBatch() {
         Batch_Dao bd=new Batch_Dao_Impl();
        List<Batch> bl= bd.viewCourse();
         bl.forEach(b->{

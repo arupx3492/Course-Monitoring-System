@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Update_Batch {
 
-    public static void main(String[] args) {
+    public static void updateBatch() {
            Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Batch Id");
         int  b_id=scanner.nextInt();

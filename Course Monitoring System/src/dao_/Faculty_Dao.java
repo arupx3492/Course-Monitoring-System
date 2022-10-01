@@ -13,5 +13,6 @@ public interface Faculty_Dao {
 
     public List<Faculty> viewFaculty() throws Faculty_Exception;
     public void updateFacultyPassword(int fi,String pass);
+    public boolean facultyLogin(String user,String password,int fid);
 
 }

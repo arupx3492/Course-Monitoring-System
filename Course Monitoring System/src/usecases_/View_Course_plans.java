@@ -8,7 +8,7 @@ import java.util.List;
 
 public class View_Course_plans {
 
-    public static void main(String[] args) {
+    public static void viewCoursePlans() {
         Course_plan_Dao cpd=new Course_Plan_Dao_Impl();
        List<CoursePlan> cplist= cpd.viewCoursePlans();
        cplist.forEach(cpl->{

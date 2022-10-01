@@ -98,20 +98,52 @@ public class Faculty_Dao_Impl implements Faculty_Dao {
     //-------------------------------------------updateFacultyPassword---------------------------------------------------------
 
     @Override
-    public void updateFacultyPassword(int fi,String pass) {
+    public void updateFacultyPassword(int fi, String pass) {
 
-        Connection conn=Dbc.getConnection();
+        Connection conn = Dbc.getConnection();
         try {
-            Statement sm=conn.createStatement();
-         int ans=sm.executeUpdate(" update faculty set password = '"+pass+"' where FacultyId ="+fi+";" );
-         if(ans==1) {
-             System.out.println("Password Updated Successfully");
-         }else {
-             System.out.println("Faculty not Exist");
-         }
+            Statement sm = conn.createStatement();
+            int ans = sm.executeUpdate(" update faculty set password = '" + pass + "' where FacultyId =" + fi + ";");
+            if (ans == 1) {
+                System.out.println("Password Updated Successfully");
+            } else {
+                System.out.println("Faculty not Exist");
+            }
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+
+    //--------------------------------------------faculty login----------------------------------
+
+    @Override
+    public boolean facultyLogin(String user, String password, int fid) {
+
+        Connection conn = Dbc.getConnection();
+        try {
+            PreparedStatement ps = conn.prepareStatement("select facultyName, username , password from faculty where facultyId=" + fid + "");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String uuser = rs.getString(2);
+                String upass = rs.getString(3);
+                if (user.equals(uuser)) {
+                    if (upass.equals(password)) {
+                        return true;
+                    } else {
+                        System.out.println(upass);
+                        System.out.println("Wrong password");
+                    }
+                } else {
+                    System.out.println("Wrong Username");
+                }
+            }
+            return false;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class View_Faculty {
 
-    public static void main(String[] args) {
+    public static void viewFaculty() {
         Faculty_Dao fd = new Faculty_Dao_Impl();
         try {
             List<Faculty> flist = fd.viewFaculty();
