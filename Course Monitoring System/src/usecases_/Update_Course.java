@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Update_Course {
 
-    public static void main(String[] args) {
+    public static void updateCourse() {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Course Id");

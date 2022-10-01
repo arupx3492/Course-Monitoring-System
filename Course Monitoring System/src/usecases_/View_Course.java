@@ -8,7 +8,7 @@ import java.util.List;
 
 public class View_Course {
 
-    public static void main(String[] args) {
+    public static void viewCourse() {
         Course_Dao cd=new Course_Dao_Impl();
         List<Course> courses=cd.viewCourse();
 

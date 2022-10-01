@@ -13,4 +13,6 @@ public interface Batch_Dao {
 
 
     public void   updateBatch(int bi,String f, String s);
+
+    public void  allocateFacultyInBatch(int bi,int fi);
 }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Update_Faculty {
 
-    public static void main(String[] args) {
+    public static void updateFaculty() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Faculty Id");
         int  f_id=scanner.nextInt();

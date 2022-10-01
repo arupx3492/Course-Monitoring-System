@@ -12,7 +12,8 @@ public class Dbc {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+//            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
 
         String url = "jdbc:mysql://localhost:3306/cms";

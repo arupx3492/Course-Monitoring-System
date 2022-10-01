@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Create_Batch {
 
-    public static void main(String[] args) {
+    public static void createBatch() {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Batch ID");

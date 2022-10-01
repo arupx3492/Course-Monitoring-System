@@ -87,4 +87,26 @@ public class Batch_Dao_Impl implements Batch_Dao{
             System.out.println(e.getMessage());
         }
     }
+
+
+    //-------------------------------------------allocateFacultyInBatch---------------------------------------------------
+
+    @Override
+    public void allocateFacultyInBatch(int bi, int fi) {
+    Connection conn=Dbc.getConnection();
+
+        try {
+            Statement sm=conn.createStatement();
+            int ans=sm.executeUpdate("update batch set facultyId='"+fi+"' where batchId='"+bi+"'");
+            if(ans==1){
+                System.out.println("Updated Successfully");
+            }else{
+                System.out.println("Not Update");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }

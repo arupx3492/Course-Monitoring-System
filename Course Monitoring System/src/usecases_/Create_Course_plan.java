@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Create_Course_plan {
 
-    public static void main(String[] args) {
+    public static void createCoursePlan() {
 
             Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Plan Id ");
