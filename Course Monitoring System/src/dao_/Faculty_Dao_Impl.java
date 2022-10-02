@@ -45,7 +45,6 @@ public class Faculty_Dao_Impl implements Faculty_Dao {
     public void updateFaculty(int fi, String f, String s) {
 
         Connection conn = utility.Dbc.getConnection();
-        String Q = "Update Faculty set " + f + "=" + s + "where FacultyIid =" + fi + ";";
         try {
             Statement sm = conn.createStatement();
             int ans = sm.executeUpdate("Update Faculty set " + f + " = '" + s + "' where facultyId= " + fi + " ");
