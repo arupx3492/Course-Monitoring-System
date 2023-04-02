@@ -3,7 +3,7 @@
 This is a Java-based application for monitoring course activities and assignments for students and instructors.
 
 # Installation and Usage
-To run this application, you will need to have Java installed on your computer. Follow these steps to get started:
+## To run this application, you will need to have Java installed on your computer. Follow these steps to get started:
 
 1. Clone the repository to your local machine.
 2. Open the project in your preferred Java IDE.
@@ -11,18 +11,21 @@ To run this application, you will need to have Java installed on your computer. 
 4. Follow the on-screen instructions to use the system.
 
 # Features
-This system provides the following features for both students and instructors:
+## This system provides the following features for both students and instructors:
 
-- View upcoming assignments and their due dates.
-- Submit assignments.
-- View grades and feedback on assignments.
-- Create and manage courses.
-- Add and remove students from courses.
-- View course statistics, such as average grades and attendance.
+- Admin Login || Faculty Login
+- Create Course || Update Course || View Course 
+- Create Batch  || Update Batchh || View Batch
+- Create Facullty || Update Faculty || View Faculty || Allocate Faculty to Batch
+- Create Course Plan || Update Course Plan || View Course plan
+- View Day Wise Update for Every Batch || Generate Report for Every Batch
+
+
+
 # Technologies Used
 ## This application was built using the following technologies:
 
 - Java
-- JavaFX
+- Jdbc
 - MySQL
-- Contributors
+
